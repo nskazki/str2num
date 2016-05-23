@@ -44,5 +44,13 @@
   },
   "directories": {
     "test": "test"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nskazki/str2num.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nskazki/str2num/issues"
+  },
+  "homepage": "https://github.com/nskazki/str2num#readme"
 }

@@ -3,7 +3,7 @@
 import str2num from '../src'
 import assert = require('power-assert')
 
-describe('number', () => {
+describe('str2num', () => {
   it('1000', () => {
     const act = str2num('1000')
     const exp = 1000

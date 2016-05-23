@@ -1,7 +1,7 @@
 {
   "name": "str2num",
   "description": "strict cast string to number",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "MIT",
   "main": "build/src/index.js",
   "typings": "build/src/index.d.ts",
@@ -30,8 +30,7 @@
     "coveralls": "cat ./coverage/lcov.info | coveralls",
     "mocha": "mocha"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "coveralls": "^2.11.9",
     "espower-typescript": "^5.0.1",

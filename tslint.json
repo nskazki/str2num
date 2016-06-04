@@ -32,7 +32,7 @@
     "no-conditional-assignment": true,
     "no-consecutive-blank-lines": false,
     "no-console": [ false ],
-    "no-construct": true,
+    "no-construct": false,
     "no-constructor-vars": false,
     "no-debugger": true,
     "no-duplicate-key": true,

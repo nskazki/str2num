@@ -15,6 +15,13 @@ npm i -S str2num
 Strict way to convert a string to a number.
 If the string does not contain the number then will be thrown the error.
 
+## Exports
+
+```ts
+export default function str2num(value: string|number): number;
+export function isNum(value: any): boolean;
+```
+
 ## Examples
 
 ```js
@@ -35,6 +42,9 @@ assert.equal(str2num('-.123e3'), -123)
 assert.equal(str2num('-Infinity'), -Infinity)
 assert.equal(isNaN(str2num('NaN')), isNaN(NaN))
 
+assert.equal(str2num(new Number(-1)), -1)
+assert.equal(str2num(new String('-1')), -1)
+
 assert.throws(() => str2num([]))
 assert.throws(() => str2num({}))
 assert.throws(() => str2num(/./))
@@ -46,4 +56,20 @@ assert.throws(() => str2num('.e'))
 assert.throws(() => str2num('.e3'))
 assert.throws(() => str2num('-123e'))
 assert.throws(() => str2num('e123'))
+```
+
+```js
+const isNum = require('str2num').isNum
+const assert = require('assert')
+
+assert.ok(isNum(Infinity))
+assert.ok(isNum('Infinity'))
+assert.ok(isNum('- 123, 456 .1e1'))
+
+assert.ok(isNum(new Number(-1)))
+assert.ok(isNum(new String('-1')))
+
+assert.ok(!isNum([]))
+assert.ok(!isNum({}))
+assert.ok(!isNum(/.*/))
 ```

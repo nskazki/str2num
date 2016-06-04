@@ -2,14 +2,32 @@
 
 import { inspect } from 'util'
 
-export default function str2num(value: string): number {
-  if (typeof value === 'number')
-    return value as any as number
+const toString = Object.prototype.toString
+const isNumber = (v: any): v is number => toString.call(v) === '[object Number]'
+const isString = (v: any): v is string => toString.call(v) === '[object String]'
 
-  if (typeof value !== 'string')
+export default function str2num(value: string|number): number {
+  if (isNumber(value))
+    return value.valueOf() as any as number
+
+  if (!isString(value))
     throw new TypeError(`str2num: value must be a string or number!
       \n\t value type: ${typeof value}\
       \n\t value: ${inspect(value)}`)
+
+  const clr = (value as string)
+    .replace(/\s/g, '')
+    .replace(/,/g, '')
+
+  if (isNum(clr)) return Number(clr)
+  else throw new Error(`str2num: value can't be cast to the number!\
+    \n\t value type: ${typeof value}\
+    \n\t value: ${inspect(value)}`)
+}
+
+export function isNum(value: any): boolean {
+  if (isNumber(value)) return true
+  if (!isString(value)) return false
 
   const clr = value
     .replace(/\s/g, '')
@@ -34,12 +52,10 @@ export default function str2num(value: string): number {
     || isStrEpsilon
     || isStrNormal
 
-  if (isStrNumber) return Number(clr)
-  else throw new Error(`str2num: value can't be cast to the number!\
-    \n\t value type: ${typeof value}\
-    \n\t value: ${inspect(value)}`)
+  return isStrNumber
 }
 
 // ES6 Modules default exports interop with CommonJS
 module.exports = str2num
 module.exports.default = str2num
+module.exports.isNum = isNum

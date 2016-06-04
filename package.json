@@ -1,7 +1,7 @@
 {
   "name": "str2num",
   "description": "strict cast string to number",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "license": "MIT",
   "main": "build/src/index.js",
   "typings": "build/src/index.d.ts",

@@ -37,9 +37,9 @@ export function isNum(value: any): boolean {
   const isStrInfinity = /^[-+]?Infinity$/.test(clr)
 
   const isStrEpsilon = false
-    || /^[-+]?\d+\.\d*e\d+$/.test(clr)
-    || /^[-+]?\d*\.\d+e\d+$/.test(clr)
-    || /^[-+]?\d+e\d+$/.test(clr)
+    || /^[-+]?\d+\.\d*e[+-]?\d+$/.test(clr)
+    || /^[-+]?\d*\.\d+e[+-]?\d+$/.test(clr)
+    || /^[-+]?\d+e[+-]?\d+$/.test(clr)
 
   const isStrNormal = false
     || /^[-+]?\d+\.\d*$/.test(clr)

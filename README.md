@@ -37,7 +37,10 @@ assert.equal(str2num('-0'), -0)
 assert.equal(str2num('1.20'), 1.2)
 assert.equal(str2num('.120'), 0.12)
 assert.equal(str2num('120.'), 120)
+
 assert.equal(str2num('-.123e3'), -123)
+assert.equal(str2num('-.123e+3'), -123)
+assert.equal(str2num('-123e-3'), -0.123)
 
 assert.equal(str2num('-Infinity'), -Infinity)
 assert.equal(isNaN(str2num('NaN')), isNaN(NaN))

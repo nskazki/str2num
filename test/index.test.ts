@@ -308,6 +308,23 @@ describe('str2num', () => {
     assert.equal(act, exp)
   })
 
+  it('string: -123e3', () => {
+    const act = str2num('-123e3')
+    const exp = -123000
+    assert.equal(act, exp)
+  })
+
+  it('string: -123e-3', () => {
+    const act = str2num('-123e-3')
+    const exp = -0.123
+    assert.equal(act, exp)
+  })
+
+  it('string: -123e+3', () => {
+    const act = str2num('-123e+3')
+    const exp = -123000
+    assert.equal(act, exp)
+  })
 
   it('string: 123456.', () => {
     const act = str2num('123456.')
